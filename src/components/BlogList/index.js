@@ -15,11 +15,19 @@ export default class BlogList extends Component {
 
   async componentDidMount() {
     const blogsDataAPIResponse = await fetch(blogsApiUrl)
-    const blogsData = await blogsDataAPIResponse
+    const blogsData = await blogsDataAPIResponse.json()
+    const formattedBlogsData = blogsData.map(blogsDataItem => ({
+      id: blogsDataItem.id,
+      title: blogsDataItem.title,
+      imageUrl: blogsDataItem.image_url,
+      avatarUrl: blogsDataItem.avatar_url,
+      author: blogsDataItem.author,
+      topic: blogsDataItem.topic,
+    }))
 
     this.setState({
       isLoading: false,
-      blogList: blogsData,
+      blogList: formattedBlogsData,
     })
   }
 
