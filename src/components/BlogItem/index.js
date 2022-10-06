@@ -6,7 +6,7 @@ const BlogItem = props => {
   const {id, title, imageUrl, avatarUrl, author, topic} = itemData
 
   return (
-    <Link to={`/blogs/${id}`}>
+    <Link className="blog-item-routing-link" to={`/blogs/${id}`}>
       <li className="blog-item-container">
         <img className="blog-item-image" src={imageUrl} alt={title} />
         <div className="blog-item-content-container">

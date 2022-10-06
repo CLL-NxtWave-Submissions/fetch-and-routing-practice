@@ -1,11 +1,15 @@
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import BlogItem from '../BlogItem'
+
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import './index.css'
 
 const blogsApiUrl = 'https://apis.ccbp.in/blogs'
 
 export default class BlogList extends Component {
   state = {
+    isLoading: true,
     blogList: [],
   }
 
@@ -19,9 +23,14 @@ export default class BlogList extends Component {
   }
 
   render() {
-    const {blogList} = this.state
+    const {isLoading, blogList} = this.state
 
-    return (
+    return isLoading ? (
+      // <div testid="loader">
+      <div>
+        <Loader type="TailSpin" color="#00bfff" height={50} width={50} />
+      </div>
+    ) : (
       <ul className="blog-list-container">
         {blogList.map(blogListItem => (
           <BlogItem itemData={blogListItem} />
