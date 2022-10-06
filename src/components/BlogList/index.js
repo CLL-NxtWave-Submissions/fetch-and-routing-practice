@@ -18,6 +18,7 @@ export default class BlogList extends Component {
     const blogsData = await blogsDataAPIResponse
 
     this.setState({
+      isLoading: false,
       blogList: blogsData,
     })
   }
