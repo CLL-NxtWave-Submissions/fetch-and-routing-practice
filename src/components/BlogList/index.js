@@ -34,7 +34,7 @@ export default class BlogList extends Component {
     ) : (
       <ul className="blog-list-container">
         {blogList.map(blogListItem => (
-          <BlogItem itemData={blogListItem} />
+          <BlogItem key={blogListItem.id} itemData={blogListItem} />
         ))}
       </ul>
     )
