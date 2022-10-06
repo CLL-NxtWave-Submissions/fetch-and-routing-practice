@@ -5,7 +5,14 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  padding: 1rem;
   list-style-type: none;
-  padding-left: 0;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .blog-list-container {
+    padding: 1rem 4rem;
+    margin-top: 4rem;
+  }
 }
