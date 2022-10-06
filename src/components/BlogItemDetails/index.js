@@ -12,7 +12,11 @@ export default class BlogItemDetails extends Component {
     blogData: {},
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.fetchBlogData()
+  }
+
+  fetchBlogData = async () => {
     const {match} = this.props
     const {params} = match
     const {id} = params
@@ -21,6 +25,7 @@ export default class BlogItemDetails extends Component {
 
     const blogDataAPIResponse = await fetch(blogItemDetailsApiUrl)
     const fetchedBlogData = await blogDataAPIResponse.json()
+
     const formattedBlogData = {
       id: fetchedBlogData.id,
       title: fetchedBlogData.title,
