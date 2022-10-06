@@ -50,3 +50,29 @@
 .blog-item-details-author {
   font-weight: 550;
 }
+
+@media (min-width: 768px) {
+  .blog-item-details-container {
+    padding: 3rem 5rem 2rem 5rem;
+  }
+
+  .blog-item-details-title {
+    font-size: 2.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .blog-item-details-avatar {
+    height: 3rem;
+    width: 3rem;
+    margin-right: 0.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .blog-item-details-author {
+    font-size: 1.5rem;
+  }
+
+  .blog-item-details-content {
+    font-size: 1.5rem;
+  }
+}
