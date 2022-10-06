@@ -25,7 +25,6 @@ export default class BlogItemDetails extends Component {
 
     const blogDataAPIResponse = await fetch(blogItemDetailsApiUrl)
     const fetchedBlogData = await blogDataAPIResponse.json()
-
     const formattedBlogData = {
       id: fetchedBlogData.id,
       title: fetchedBlogData.title,
@@ -36,16 +35,19 @@ export default class BlogItemDetails extends Component {
       topic: fetchedBlogData.topic,
     }
 
-    this.setState({
-      isLoading: false,
-      blogData: formattedBlogData,
+    this.setState(previousState => {
+      const {isLoading} = previousState
+
+      return {
+        isLoading: !isLoading,
+        blogData: formattedBlogData,
+      }
     })
   }
 
   render() {
     const {isLoading, blogData} = this.state
     const {title, imageUrl, avatarUrl, author, content} = blogData
-
     return isLoading ? (
       // <div testid="loader">
       <div>
